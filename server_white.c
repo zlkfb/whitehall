@@ -19,6 +19,12 @@ int fsmServer;
 int nbPts;
 int ptKill[4];
 int nbTour;
+int indice;
+int ind_j;
+int ind_v;
+int ind_b;
+int ind_k;
+int l;
 
 void printClients()
 {
@@ -171,27 +177,104 @@ int main(int argc, char *argv[])
 		fsmServer=1;
 	    }
 	  break;
-	case 'X':
+	case 'K':
+	  //fsmServer = 1 : Jack choisit les 4 points 
+	  if(fsmServer == 1)
+	    {
+	      l = strlen(buffer);
+	      if(l == 5)
+		indice = (int)(buffer[2])*100 + (int)(buffer[3])*10 + (int)(buffer[4]);
+	      if(l == 4)
+		indice = (int)(buffer[2])*10 + (int)(buffer[3]) ;
+	      if(l == 3)
+		indice = (int)(buffer[2]);
+	      ptKill[nbPts++] = indice;
+	      id=findClientByName(clientName);
+	      sendMessageToClient(tcpClients[id].ipAddress, tcpClients[id].port,"T messageprisencompte\n");
+	      if(nbPts == 4) 
+		fsmServer = 2;
+	    }
 
+	  //fsmServer = 5 : Placement de Jack 
+	  if(fsmServer == 5)
+	    {
+	      l = strlen(buffer);
+	      if(l == 5)
+		indice = (int)(buffer[2])*100 + (int)(buffer[3])*10 + (int)(buffer[4]);
+	      if(l == 4)
+		indice = (int)(buffer[2])*10 + (int)(buffer[3]) ;
+	      if(l == 3)
+		indice = (int)(buffer[2]);
+	      ind_k = indice;
+	      id=findClientByName(clientName);
+	      sendMessageToClient(tcpClients[id].ipAddress, tcpClients[id].port,"T messageprisencompte\n");
+	      if(nbPts == 4) 
+		fsmServer = 6;
+	    }
+	  break;
+	case 'J':
+	  //fsmServer = 2 : Placement de policier jaune
+	  if(fsmServer == 2)
+	    {
+	      l = strlen(buffer);
+	      if(l == 5)
+		indice = (int)(buffer[2])*100 + (int)(buffer[3])*10 + (int)(buffer[4]);
+	      if(l == 4)
+		indice = (int)(buffer[2])*10 + (int)(buffer[3]) ;
+	      if(l == 3)
+		indice = (int)(buffer[2]);
+	      ind_j = indice;
+	      id=findClientByName(clientName);
+	      sendMessageToClient(tcpClients[id].ipAddress, tcpClients[id].port,"T messageprisencompte\n");
+	      fsmServer = 3;
+	    }
+	  break;
+	case 'V':
+	  //fsmServer = 3 : Placement de policier vert
+	  if(fsmServer == 3)
+	    {
+	      l = strlen(buffer);
+	      if(l == 5)
+		indice = (int)(buffer[2])*100 + (int)(buffer[3])*10 + (int)(buffer[4]);
+	      if(l == 4)
+		indice = (int)(buffer[2])*10 + (int)(buffer[3]) ;
+	      if(l == 3)
+		indice = (int)(buffer[2]);
+	      ind_v = indice;
+	      id=findClientByName(clientName);
+	      sendMessageToClient(tcpClients[id].ipAddress, tcpClients[id].port,"T messageprisencompte\n");
+	      fsmServer = 4;
+	    }
+	  break;
+	case 'B':
+	  //fsmServer = 4 : Placement de policier bleu
+	  if(fsmServer == 4)
+	    {
+	      l = strlen(buffer);
+	      if(l == 5)
+		indice = (int)(buffer[2])*100 + (int)(buffer[3])*10 + (int)(buffer[4]);
+	      if(l == 4)
+		indice = (int)(buffer[2])*10 + (int)(buffer[3]) ;
+	      if(l == 3)
+		indice = (int)(buffer[2]);
+	      ind_b = indice;
+ 	      id=findClientByName(clientName);
+	      sendMessageToClient(tcpClients[id].ipAddress, tcpClients[id].port,"T messageprisencompte\n");
+	      fsmServer = 5;
+	    }
+	  break;
 	default:
 	  break;
 	}
 
-      //fsmServer = 1 : Jack choisit les 4 points 
-      if(fsmServer == 1)
-	{
-	  ptKill[nbPts++] = buffer[0];
-	  sendMessageToClient(ipaddress,"T messageprisencompte\n");
-	  if(nbPts == 4) 
-	    fsmServer = 2;
-	}
+      
 
-      //fsmServer = 2 : Phase de jeu 
-      if(fsmServer == 2)
+      //fsmServer = 6 : Phase de jeu: Jack joue en premier, puis les policiers et chaque policier questionne le serveur pour savoir si Jack est passé par là, et peut lancer une accusation 
+      if(fsmServer == 6)
 	{
 	  
 	  nbTour++;
-	  //nombre de tour max atteint
+	  //nombre de tour max atteint: Jack a perdu, fin de partie
 	  if(nbTour == 15)
 	    {
 	      exit(0);

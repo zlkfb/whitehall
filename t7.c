@@ -21,7 +21,7 @@ struct _poi
 {
   int x;
   int y;
-} poi[600];
+} poi[200], poic[300];
 int indice;
 
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
@@ -219,63 +219,57 @@ void initPOI()
   poi[188].x=873; poi[188].y=927;
   poi[189].x=133; poi[189].y=953;
 
-  poi[200].x=84; poi[200].y=104;
-  poi[201].x=148; poi[201].y=71;
-  poi[202].x=182; poi[202].y=66;
-  poi[203].x=251; poi[203].y=75;
-  poi[204].x=307; poi[204].y=39;
-  poi[205].x=291; poi[205].y=84;
-  poi[206].x=64; poi[206].y=168;
-  poi[207].x=179; poi[207].y=129;
-  poi[208].x=212; poi[208].y=133;
-  poi[209].x=273; poi[209].y=134;
-  poi[210].x=332; poi[210].y=93;
-  poi[211].x=405; poi[211].y=103;
-  poi[212].x=480; poi[212].y=79;
-  poi[213].x=415; poi[213].y=141;
-  poi[214].x=474; poi[214].y=149;
-  poi[215].x=353; poi[215].y=143;
-  poi[216].x=367; poi[216].y=189;
-  poi[217].x=427; poi[217].y=233;
-  poi[218].x=475; poi[218].y=209;
-  poi[219].x=476; poi[219].y=266;
-  poi[220].x=340; poi[220].y=234;
-  poi[221].x=298; poi[221].y=188;
-  poi[222].x=243; poi[222].y=185;
-  poi[223].x=200; poi[223].y=170;
-  poi[224].x=155; poi[224].y=207;
-  poi[225].x=110; poi[225].y=246;
-  poi[226].x=69; poi[226].y=291;
-  poi[227].x=236; poi[227].y=235;
-  poi[228].x=280; poi[228].y=247;
-  poi[229].x=423; poi[229].y=319;
-  poi[230].x=481; poi[230].y=362;
-  poi[231].x=482; poi[231].y=419;
-  poi[232].x=497; poi[232].y=470;
-  poi[233].x=405; poi[233].y=499;
-  poi[234].x=395; poi[234].y=434;
-  poi[235].x=385; poi[235].y=354;
-  poi[236].x=296; poi[236].y=300;
-  poi[237].x=226; poi[237].y=307;
-  poi[238].x=203; poi[238].y=266;	
-  poi[239].x=141; poi[239].y=289;
-  poi[240].x=68; poi[240].y=328;
-  poi[241].x=62; poi[241].y=402;
-  poi[242].x=128; poi[242].y=363;
-  poi[243].x=165; poi[243].y=343;
-  poi[244].x=186; poi[244].y=381;
-  poi[245].x=260; poi[245].y=369;
-  poi[246].x=330; poi[246].y=370;
-  poi[247].x=346; poi[247].y=405;
-  poi[248].x=360; poi[248].y=266;
-  poi[249].x=101; poi[249].y=136;
-  poi[250].x=99; poi[250].y=431;
-  poi[251].x=125; poi[251].y=487;
-  poi[252].x=171; poi[252].y=492;
-  poi[253].x=232; poi[253].y=462;
-  poi[254].x=290; poi[254].y=422;
-  poi[255].x=317; poi[255].y=475;
-  poi[256].x=258; poi[256].y=512;
+  poic[0].x=148; poic[0].y=75;
+  poic[1].x=182; poic[1].y=66;
+  poic[2].x=252; poic[2].y=75;
+  poic[3].x=307; poic[3].y=40;
+  poic[4].x=293; poic[4].y=82;
+  poic[5].x=333; poic[5].y=90;
+  poic[6].x=404; poic[6].y=103;
+  poic[7].x=481; poic[7].y=80;
+  poic[8].x=588; poic[8].y=42;
+  poic[9].x=631; poic[9].y=79;
+  poic[10].x=680; poic[10].y=107;
+  poic[11].x=759; poic[11].y=82;
+  poic[12].x=818; poic[12].y=58;
+  poic[13].x=83; poic[13].y=105;
+  poic[14].x=177; poic[14].y=130;
+  poic[15].x=213; poic[15].y=133;
+  poic[16].x=273; poic[16].y=133;
+  poic[17].x=353; poic[17].y=144;
+  poic[18].x=416; poic[18].y=141;
+  poic[19].x=472; poic[19].y=146;
+  poic[20].x=513; poic[20].y=115;
+  poic[21].x=579; poic[21].y=133;
+  poic[22].x=615; poic[22].y=143;
+  poic[23].x=727; poic[23].y=131;
+  poic[24].x=821; poic[24].y=120;
+  poic[25].x=888; poic[25].y=125;
+  poic[26].x=65; poic[26].y=168;
+  poic[27].x=199; poic[27].y=170;
+  poic[28].x=243; poic[28].y=184;
+  poic[29].x=297; poic[29].y=186;
+  poic[30].x=365; poic[30].y=193;
+  poic[31].x=534; poic[31].y=177;
+  poic[32].x=640; poic[32].y=178;
+  poic[33].x=681; poic[33].y=177;
+  poic[34].x=739; poic[34].y=188;
+  poic[35].x=928; poic[35].y=150;
+  poic[36].x=157; poic[36].y=207;
+  poic[37].x=111; poic[37].y=247;
+  poic[38].x=140; poic[38].y=288;
+  poic[39].x=238; poic[39].y=236;
+  poic[40].x=205; poic[40].y=269;
+  poic[41].x=277; poic[41].y=248;
+  poic[42].x=340; poic[42].y=233;
+  poic[43].x=358; poic[43].y=267;
+  poic[44].x=427; poic[44].y=232;
+  poic[45].x=474; poic[45].y=209;
+  poic[46].x=564; poic[46].y=237;
+  poic[47].x=647; poic[47].y=234;
+  poic[48].x=707; poic[48].y=217;
+  poic[49].x=820; poic[49].y=219;
+
 }
 
 int findPOI(int mx,int my)
@@ -411,7 +405,7 @@ int main(int argc, char ** argv)
  
   SDL_Window * window = SDL_CreateWindow("SDL2 Displaying Image",
 					 SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1024+128, 1024, 0);
- 
+  
   SDL_Renderer * renderer = SDL_CreateRenderer(window, -1, 0);
   //SDL_Surface * image = SDL_LoadBMP("whitehall_1024x1024.bmp");
   SDL_Surface * image = IMG_Load("whitehall_1024x1024.png");
@@ -457,22 +451,23 @@ int main(int argc, char ** argv)
 	      else
 		{
 		  indice=findPOI(mx,my);
-		  printf("indice=%d\n",indice);
+		  sprintf(mess,"K %d",indice);
+		  sendMessageToServer(gServerIpAddress, gServerPort, mess);
 		}
-
+	      
 	      break;
-	    case  SDL_MOUSEMOTION:
+	    case SDL_MOUSEMOTION:
 	      SDL_GetMouseState( &mx, &my );
 	      indice=findPOI(mx,my);
 	      break;
 	    }
 	}
-
+      
       if (synchro==1)
 	{
 	  puts("consomme");
 	  pthread_mutex_lock( &mutex );
-
+	  
 	  switch (gbuffer[0])
 	    {
 	    case 'C':
@@ -493,12 +488,12 @@ int main(int argc, char ** argv)
 	  synchro=0;
 	  pthread_mutex_unlock( &mutex );
 	}
-
+      
       SDL_Rect dstrect = { 0, 0, 1024, 1024 };
       //SDL_Rect srcrect_pawn = { 0, 0, 87, 131 };
       SDL_Rect dstrect_pawn = { 100, 100, 87, 131 };
       SDL_Rect dstrect_rond = { 300, 300, 200, 200 };
-
+      
       SDL_RenderCopy(renderer, texture, NULL, &dstrect);
 
       //SDL_RenderCopy(renderer, texture_pawn, NULL, &dstrect_pawn);
@@ -509,12 +504,12 @@ int main(int argc, char ** argv)
 	}
       SDL_RenderPresent(renderer);
     }
- 
+  
   SDL_DestroyTexture(texture);
   SDL_FreeSurface(image);
   SDL_DestroyRenderer(renderer);
   SDL_DestroyWindow(window);
- 
+  
   SDL_Quit();
  
   return 0;
