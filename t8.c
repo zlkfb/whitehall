@@ -19,8 +19,8 @@ char gName[256];
 int gId;
 struct _poi
 {
-	int x;
-	int y;
+  int x;
+  int y;
 } poi[600];
 int indice;
 
